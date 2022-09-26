@@ -34,6 +34,8 @@ public class MyDrug extends CrucialItem {
     private String particle;
     private int addict;
 
+    private int customModelData;
+
     public MyDrug(String name, String head) {
         super("drug");
         this.isHead = true;
@@ -58,6 +60,9 @@ public class MyDrug extends CrucialItem {
                 meta.setDisplayName(ChatColor.WHITE + meta.getDisplayName());
             } else {
                 meta.setDisplayName(ChatColor.RED + meta.getDisplayName());
+            }
+            if(customModelData != 0){
+                meta.setCustomModelData(customModelData);
             }
         }
         stack.setItemMeta(meta);
@@ -145,6 +150,14 @@ public class MyDrug extends CrucialItem {
                 recipe[i] = "AIR";
             }
         }
+    }
+
+    public int getCustomModelData() {
+        return customModelData;
+    }
+
+    public void setCustomModelData(int customModelData) {
+        this.customModelData = customModelData;
     }
 
     public int getAddictionProbability() {
